@@ -11,10 +11,9 @@ import {
   X,
   Calendar,
   Paperclip,
-  Download,
   Undo2
 } from 'lucide-react';
-import type { Note, NoteColor, ExportFormat } from '../types';
+import type { Note, NoteColor } from '../types';
 
 interface NoteCardProps {
   note: Note;
@@ -89,32 +88,6 @@ export function NoteCard({
       );
       onUpdateAttachments(note.id, updatedAttachments);
     }
-  };
-
-  const handleExport = async (format: ExportFormat, e: React.MouseEvent) => {
-    e.stopPropagation();
-    let content = '';
-    switch (format) {
-      case 'txt':
-        content = `${note.title}\n\n${note.content}`;
-        break;
-      case 'md':
-        content = `# ${note.title}\n\n${note.content}`;
-        break;
-      case 'pdf':
-        alert('PDF export would be implemented with a proper PDF library');
-        return;
-    }
-
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${note.title || 'note'}.${format}`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
   };
 
   return (
@@ -282,12 +255,6 @@ export function NoteCard({
                 }}
               >
                 <Trash2 className="w-4 h-4 text-gray-600 dark:text-gray-400" />
-              </button>
-              <button
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
-                onClick={(e) => handleExport('md', e)}
-              >
-                <Download className="w-4 h-4 text-gray-600 dark:text-gray-400" />
               </button>
             </>
           )}

@@ -24,3 +24,31 @@ body {
 * {
   @apply transition-colors duration-200;
 }
+
+/* Confetti animations */
+@keyframes confetti-1 {
+  0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+  100% { transform: translate(-20vw, 100vh) rotate(-360deg); opacity: 0; }
+}
+
+@keyframes confetti-2 {
+  0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+  100% { transform: translate(20vw, 100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes confetti-3 {
+  0% { transform: translate(0, 0) rotate(0); opacity: 1; }
+  100% { transform: translate(0, 100vh) rotate(720deg); opacity: 0; }
+}
+
+.animate-confetti-1 {
+  animation: confetti-1 2s ease-out forwards;
+}
+
+.animate-confetti-2 {
+  animation: confetti-2 2.5s ease-out forwards;
+}
+
+.animate-confetti-3 {
+  animation: confetti-3 2.2s ease-out forwards;
+}

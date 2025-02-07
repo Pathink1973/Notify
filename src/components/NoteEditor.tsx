@@ -92,8 +92,8 @@ export function NoteEditor({ note, onSave, onClose }: NoteEditorProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-3xl p-6 transition-colors">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-4 md:p-6 transition-colors">
         <input
           type="text"
           placeholder="Título (suporta Markdown)"
